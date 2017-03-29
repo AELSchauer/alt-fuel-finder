@@ -4,7 +4,7 @@ RSpec.feature 'user can search by zip code' do
   scenario 'by going to the root page' do
     raw_stations_data = NrelRequest.new(ENV['api_key']).nearest_stations("80203")
 
-    visit root_path
+    visit '/'
 
     fill_in 'zip_code', with: '80203'
     click_on 'Locate'
