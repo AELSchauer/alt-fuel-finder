@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe 'user can search by zip code' do
+RSpec.feature 'user can search by zip code' do
   scenario 'by going to the root page' do
     raw_stations_data = NrelRequest.new(ENV['api_key']).nearest_stations("80203")
 
     visit root_path
 
-    fill_in 'nrel_request[zip_code]', with: '80203'
-    click_on 'Submit'
+    fill_in 'zip_code', with: '80203'
+    click_on 'Locate'
 
     expect(current_path).to eq("/search?zip_code=80203")
 
