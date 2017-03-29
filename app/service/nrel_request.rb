@@ -10,6 +10,7 @@ class NrelRequest
     response = conn.get "nrel/alt-fuel-stations/v1/nearest.json", {
       limit: 10,
       location: zip_code,
+      radius: 6.0,
       fuel_type: "ELEC,LPG",
       api_key: api_key
     }
